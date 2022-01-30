@@ -1,0 +1,16 @@
+.card {
+  max-width: 300px;
+  background-color: rgb(36, 37, 38);
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-left: 6%;
+}

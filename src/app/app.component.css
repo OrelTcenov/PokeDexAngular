@@ -1,0 +1,10 @@
+.iconSize {
+  color: rgb(228, 230, 235);
+  font-size: 30px;
+}
+.toolbar {
+  background-color: rgb(36, 37, 38);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}

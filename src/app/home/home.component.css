@@ -1,0 +1,39 @@
+.card {
+  max-width: 250px;
+  background-color: rgb(36, 37, 38);
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-left: 4%;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: rgb(228, 230, 235);
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 46%;
+  margin-top: 10%;
+}
+
+.mat-paginator {
+  background-color: rgb(24, 25, 26);
+  color: rgb(228, 230, 235);
+}
+
+::ng-deep .mat-select-arrow {
+  color: rgb(228, 230, 235);
+}
+::ng-deep .mat-select-value {
+  color: rgb(228, 230, 235);
+}

@@ -1,0 +1,32 @@
+html {
+  background-color: rgb(36, 37, 38);
+}
+
+::ng-deep .mat-tab-group {
+  margin-bottom: 48px;
+  background-color: rgb(228, 230, 235);
+  color: rgb(36, 37, 38);
+}
+
+th,
+td {
+  border: 1px solid rgb(58, 59, 60);
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 45%;
+  margin-top: 5%;
+}
+
+::ng-deep.mat-tab-label,
+::ng-deep.mat-tab-label-active {
+  min-width: 0 !important;
+  padding: 22px !important;
+  margin: 10px !important;
+}

@@ -1,0 +1,145 @@
+<div style="text-align: center; background-color: rgb(36, 37, 38)">
+  <div>
+    <button mat-icon-button (click)="playVoice(this.PokeData.name)">
+      <mat-icon style="color: rgb(228, 230, 235)">volume_up</mat-icon>
+    </button>
+    <h2 style="color: rgb(228, 230, 235); text-transform: capitalize">
+      {{ this.PokeData.name }}
+    </h2>
+  </div>
+
+  <div style="background-color: rgb(58, 59, 60)">
+    <img
+      mat-card-image
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        this.PokeData.id
+      }}.png"
+      alt="pokemon"
+      style="height: 250px; width: 250px; align-items: center"
+    />
+    <br />
+    <span
+      ><img src="../../assets/Arrow.png" style="height: 40px; width: 600px" />
+      <h1
+        style="
+          color: rgb(228, 230, 235);
+          position: absolute;
+          top: 46%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        "
+      >
+        Evolutions
+      </h1></span
+    >
+
+    <div *ngIf="this.evolvesData.length === 0" class="uploader-status">
+      <mat-spinner [diameter]="50"></mat-spinner>
+    </div>
+
+    <table *ngIf="this.evolvesData.length > 0">
+      <tr>
+        <td
+          *ngFor="let pok of this.evolvesData"
+          style="color: rgb(228, 230, 235); text-transform: capitalize"
+        >
+          <ng-container *ngIf="pok.name === this.PokeData.name">
+            <div style="border: 5px solid #e4e6eb">
+              <h3>{{ pok.name }}</h3>
+              <img
+                mat-card-image
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+                  pok.id
+                }}.png"
+                alt="pokemon"
+                style="height: 80px; width: 80px"
+              />
+              <br />
+            </div>
+          </ng-container>
+          <ng-container *ngIf="pok.name !== this.PokeData.name">
+            <div (click)="this.cardDetails(pok)" style="cursor: pointer">
+              <h3>{{ pok.name }}</h3>
+              <img
+                mat-card-image
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+                  pok.id
+                }}.png"
+                alt="pokemon"
+                style="height: 80px; width: 80px"
+              />
+              <br />
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <mat-tab-group
+    animationDuration="0ms"
+    mat-align-tabs="center"
+    style="text-transform: capitalize"
+  >
+    <mat-tab label="Type">
+      <br />
+      <table>
+        <tr>
+          <td *ngFor="let type of this.PokeData.types">{{ type.type.name }}</td>
+        </tr>
+      </table></mat-tab
+    >
+    <mat-tab label="Moves">
+      <br />
+      <table style="text-align: center">
+        <tr *ngFor="let move of this.moves">
+          <td *ngFor="let movename of move">
+            {{ movename.move.name }}
+          </td>
+        </tr>
+        <tr *ngIf="this.moves.length === 0">
+          This Pokemon has no moves
+        </tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="Abilities">
+      <br />
+      <table>
+        <tr>
+          <td *ngFor="let ability of this.PokeData.abilities">
+            {{ ability.ability.name }}
+          </td>
+        </tr>
+        <tr *ngIf="this.PokeData.abilities.length === 0">
+          This Pokemon has no abilities
+        </tr>
+      </table></mat-tab
+    >
+    <mat-tab label="Locations">
+      <br />
+      <table>
+        <tr *ngFor="let loc of this.locations">
+          <td *ngFor="let locname of loc">
+            {{ locname.location_area.name }}
+          </td>
+        </tr>
+        <tr *ngIf="this.locations.length === 0">
+          Cannot be located
+        </tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="Games">
+      <br />
+      <table style="text-align: center">
+        <tr *ngFor="let game of this.games">
+          <td *ngFor="let gamename of game">
+            {{ gamename.version.name }}
+          </td>
+        </tr>
+        <tr *ngIf="this.games.length === 0">
+          There are no games for this Pokemon
+        </tr>
+      </table></mat-tab
+    >
+  </mat-tab-group>
+</div>
